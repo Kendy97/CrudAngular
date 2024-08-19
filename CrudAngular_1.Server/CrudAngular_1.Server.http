@@ -1,0 +1,6 @@
+@CrudAngular_1.Server_HostAddress = http://localhost:5098
+
+GET {{CrudAngular_1.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
