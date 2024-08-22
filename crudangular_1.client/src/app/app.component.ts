@@ -1,21 +1,38 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router'; // Import RouterOutlet
-import { LoginComponent } from './login/login.component';
+import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { AuthService } from './services/auth.service';
-import { NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  imports: [NgIf,RouterOutlet, LoginComponent, NavbarComponent, SidebarComponent ] 
+  standalone: true,
+  imports: [
+    NavbarComponent,
+    SidebarComponent,
+    RouterModule,
+    CommonModule
+  ],
+  template: `
+    <app-navbar *ngIf="isLoggedIn"></app-navbar>
+    <div class="flex" *ngIf="isLoggedIn">
+      <app-sidebar></app-sidebar>
+      <main class="flex-grow">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+    <router-outlet *ngIf="!isLoggedIn"></router-outlet>
+  `,
 })
 export class AppComponent {
-  title = 'crudangular_1.client';
-  constructor(public authService: AuthService) { }
+  isLoggedIn = false;
 
+  constructor(private authService: AuthService) { }
 
+  ngOnInit(): void {
+    this.authService.loggedIn$.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });
+  }
 }
