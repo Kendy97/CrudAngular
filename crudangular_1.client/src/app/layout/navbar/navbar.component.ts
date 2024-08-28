@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SidebarService } from '../services/sidebar.service';
-import { AuthService } from '../services/auth.service';
+import { SidebarService } from '../../services/sidebar.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({

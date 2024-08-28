@@ -1,0 +1,15 @@
+<div class="calendar-container">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Wybierz datę</mat-label>
+    <input matInput [matDatepicker]="picker" (dateChange)="addEvent($event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <h2 > Spotkania:</h2>
+  <ul class="meetings-list">
+    <li *ngFor="let meeting of meetings">
+      <strong>{{ meeting.date | date }}</strong>: {{ meeting.title }} - {{ meeting.description }}
+    </li>
+  </ul>
+</div>

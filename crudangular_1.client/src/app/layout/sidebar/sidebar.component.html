@@ -7,9 +7,9 @@
     <h1 class="text-xl font-bold">COMPONENTS</h1>
     <ul class="mt-4">
       <li class="my-2"><a routerLink ="/dashboard" RouterLinkActive="bg-gray-700" class="hover:bg-gray-700 p-2 block">Dashboard</a></li>
-      <li class="my-2"><a href="#" class="hover:bg-gray-700 p-2 block">Kalendarz</a></li>
-      <li class="my-2"><a href="#" class="hover:bg-gray-700 p-2 block">Notatka</a></li>
-      <li class="my-2"><a href="#" class="hover:bg-gray-700 p-2 block">Wyloguj</a></li>
+      <li class="my-2"><a routerLink ="/client" RouterLinkActive="bg-gray-700" class="hover:bg-gray-700 p-2 block">Klient</a></li>
+      <li class="my-2"><a routerLink ="/calendar" RouterLinkActive="bg-gray-700" class="hover:bg-gray-700 p-2 block">Notatka</a></li>
+      <li class="my-2"><a (click) ="logout()" class="hover:bg-gray-700 p-2 block">Wyloguj</a></li>
     </ul>
   </div>
 </aside>

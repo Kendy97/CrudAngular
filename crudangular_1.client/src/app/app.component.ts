@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { NavbarComponent } from '../app/layout/navbar/navbar.component';
+import { SidebarComponent } from '../app/layout/sidebar/sidebar.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -15,16 +15,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     RouterOutlet
   ],
-  template: `
-    <app-navbar *ngIf="isLoggedIn"></app-navbar>
-    <div class="flex" *ngIf="isLoggedIn">
-      <app-sidebar></app-sidebar>
-      <main class="flex-grow">
-        <router-outlet></router-outlet>
-      </main>
-    </div>
-    <router-outlet *ngIf="!isLoggedIn"></router-outlet>
-  `,
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   isLoggedIn = false;
