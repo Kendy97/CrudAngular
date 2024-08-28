@@ -9,9 +9,7 @@ export class SidebarService {
   isSidebarOpen$ = this.sidebarOpen.asObservable();
 
   toggleSidebar() {
-    const currentState = this.sidebarOpen.value;
-    console.log('Toggling sidebar. Current state:', currentState);
+    const currentState = this.sidebarOpen.value;  
     this.sidebarOpen.next(!currentState);
-    console.log('New state:', !currentState);
   }
 }

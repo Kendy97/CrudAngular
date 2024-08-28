@@ -68,6 +68,7 @@ app.Run();
 bool IsValidUser(LoginModel model)
 {
     return model.username == "1" && model.Password == "1";
+
 }
 
 
@@ -91,4 +92,5 @@ public class LoginModel
 {
     public string username { get; set; }
     public string Password { get; set; }
+
 }

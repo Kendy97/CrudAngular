@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
     NavbarComponent,
     SidebarComponent,
     RouterModule,
-    CommonModule
+    CommonModule,
+    RouterOutlet
   ],
   template: `
     <app-navbar *ngIf="isLoggedIn"></app-navbar>
