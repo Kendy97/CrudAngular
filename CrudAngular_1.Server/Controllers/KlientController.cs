@@ -12,8 +12,8 @@ namespace CrudAngular_1.Server.Controllers
 
         private static List<Client> Clients = new List<Client>
         {
-            new Client { Id = 1, Name = "Jan Kowalski", Email = "jan.kowalski@example.com" },
-            new Client { Id = 2, Name = "Anna Nowak", Email = "anna.nowak@example.com" }
+            new Client { Id = 1, Name = "Jan Kowalski", Email = "jan.kowalski@example.com", bio = "Fajny klient" },
+            new Client { Id = 2, Name = "Anna Nowak", Email = "anna.nowak@example.com", bio = "Mniej fajny klient" }
         };
 
         [HttpGet("getClients")]
@@ -47,7 +47,7 @@ namespace CrudAngular_1.Server.Controllers
 
             existingClient.Name = client.Name;
             existingClient.Email = client.Email;
-
+            existingClient.bio = client.bio;
             return NoContent();
         }
 
@@ -68,6 +68,8 @@ namespace CrudAngular_1.Server.Controllers
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string bio { get; set; }
+
     }
 
 

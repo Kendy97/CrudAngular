@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClientService } from '../../services/client.service';
 
+import { Observable } from 'rxjs';
 
 interface Client {
   id: number;
   name: string;
   email: string;
+  bio: string;
 }
 
 @Component({
@@ -23,11 +25,21 @@ export class ClientComponent implements OnInit {
 
 
   clients: Client[] = [];
-  newClient: Client = { id: 0, name: '', email: '' };
-
-
+  newClient: Client = { id: 0, name: '', email: '', bio: '' };
+  state: string = 'List';
   ngOnInit(): void {
     this.getClients();
+  }
+
+
+  toggleAdd() {
+    this.state = 'Add'
+  }
+  toggleEdit() {
+    this.state = 'Edit'
+  }
+  toggleList() {
+    this.state = 'List'
   }
 
   getClients(): void {
@@ -35,11 +47,11 @@ export class ClientComponent implements OnInit {
   }
 
   addClient(): void {
-    if (this.newClient.name && this.newClient.email) {
+    if (this.newClient.name && this.newClient.email && this.newClient.bio) {
       this.clientService.addClient(this.newClient)
         .subscribe(client => {
           this.clients.push(client);
-          this.newClient = { id: 0, name: '', email: '' };
+          this.newClient = { id: 0, name: '', email: '', bio: '' };
         });
     }
   }

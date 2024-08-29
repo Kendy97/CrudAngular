@@ -14,7 +14,6 @@ export class NavbarComponent {
   constructor(private sidebarService: SidebarService, private authService: AuthService, private router: Router) { }
 
   toggleSidebar() {
-    console.log('Hamburger button clicked');
     this.sidebarService.toggleSidebar();
   }
 

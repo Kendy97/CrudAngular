@@ -6,6 +6,7 @@ interface Client {
   id: number;
   name: string;
   email: string;
+  bio: string;
 }
 
 @Injectable({

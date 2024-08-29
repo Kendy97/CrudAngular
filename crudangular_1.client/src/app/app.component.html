@@ -2,7 +2,9 @@
 <div class="flex" *ngIf="isLoggedIn">
   <app-sidebar></app-sidebar>
   <main class="flex-grow">
-    <router-outlet></router-outlet>
+    <div class=" min-w-full max-w-sm max-w-lg grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-4 ">
+      <router-outlet></router-outlet>
+    </div>
   </main>
 </div>
 <router-outlet *ngIf="!isLoggedIn"></router-outlet>
