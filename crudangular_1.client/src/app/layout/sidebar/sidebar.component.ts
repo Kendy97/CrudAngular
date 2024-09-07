@@ -21,7 +21,11 @@ export class SidebarComponent {
       console.log('Sidebar state changed. Current state:', value);
     });
   }
+  isCoursesSubmenuOpen = false;
 
+  toggleCoursesSubmenu() {
+    this.isCoursesSubmenuOpen = !this.isCoursesSubmenuOpen;
+  }
 
   logout(): void {
     this.authService.logout();
