@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { environment } from '../../../src/environments/environment';
 interface Client {
   id: number;
   name: string;
@@ -13,24 +13,24 @@ interface Client {
   providedIn: 'root'
 })
 export class ClientService {
-  private apiUrl = 'https://localhost:7081/api/Klient'; 
-
+  //private apiUrl = 'https://localhost:7081/api/Klient'; 
+  private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(`https://localhost:7081/api/Klient/getClients`);
+    return this.http.get<Client[]>(`${this.apiUrl}/api/Klient/getClients`);
   }
 
   addClient(client: Client): Observable<Client> {
-    return this.http.post<Client>(`https://localhost:7081/api/Klient/addClient`, client);
+    return this.http.post<Client>(`${this.apiUrl}/api/Klient/addClient`, client);
   }
 
   editClient(client: Client): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${client.id}`, client);
+    return this.http.put<void>(`${this.apiUrl}/api/Klient/${client.id}`, client);
   }
 
   deleteClient(clientId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${clientId}`);
+    return this.http.delete<void>(`${this.apiUrl}/api/Klient/${clientId}`);
   }
 
   private getToken(): string | null {
