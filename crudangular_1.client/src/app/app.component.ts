@@ -1,37 +1,30 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
+import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { NavbarComponent } from '../app/layout/navbar/navbar.component';
+import { SidebarComponent } from '../app/layout/sidebar/sidebar.component';
+import { RouterModule, RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    NavbarComponent,
+    SidebarComponent,
+    RouterModule,
+    CommonModule,
+    RouterOutlet
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
+export class AppComponent {
+  isLoggedIn = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private authService: AuthService) { }
 
-  ngOnInit() {
-    this.getForecasts();
+  ngOnInit(): void {
+    this.authService.loggedIn$.subscribe((loggedIn) => {
+      this.isLoggedIn = loggedIn;
+    });
   }
-
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
-  title = 'crudangular_1.client';
 }
