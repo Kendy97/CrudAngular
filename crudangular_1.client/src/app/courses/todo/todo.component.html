@@ -1,0 +1,10 @@
+
+<input #tresc type="text" placeholder="Dodaj zadanie">
+<button (click)="dodaj(tresc.value)">Dodaj</button>
+
+<ul>
+  <li *ngFor="let todo of todos$ | async">
+    {{ todo.tresc }}
+    <button (click)="usun(todo.id)">Usuń</button>
+  </li>
+</ul>

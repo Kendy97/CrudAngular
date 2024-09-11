@@ -14,6 +14,10 @@ import { HostListenerComponent } from './courses/host-listener/host-listener.com
 import { DirectiveComponent } from './courses/directive/directive.component';
 import { ChangeDetectionComponent } from './courses/change-detection/change-detection.component';
 import { NgclassComponent } from './courses/ngclass/ngclass.component';
+import { ReactiveFormsComponent } from './courses/reactive-forms/reactive-forms.component';
+import { ApihttpComponent } from './courses/apihttp/apihttp.component';
+import { TodoComponent } from './courses/todo/todo.component';
+import { AnimationComponent } from './courses/animation/animation.component';
 
 export const routes: Routes = [
   {
@@ -87,7 +91,26 @@ export const routes: Routes = [
     component: NgclassComponent,
     canActivate: [AuthGuard]
   },
-
+  {
+    path: 'reactiveForm',
+    component: ReactiveFormsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'apiHttp',
+    component: ApihttpComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'toDO',
+    component: TodoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'animacje',
+    component: AnimationComponent,
+    canActivate: [AuthGuard]
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', redirectTo: '/login' }
 

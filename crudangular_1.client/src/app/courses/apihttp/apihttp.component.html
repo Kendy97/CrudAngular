@@ -1,0 +1,32 @@
+
+<a (click)="getApi()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+  Pobierz dane!!
+</a>
+
+
+<ul>
+  <li *ngFor="let user of users">
+    <article class="rounded-xl border border-gray-700 bg-gray-800 p-4">
+      <div class="flex items-center gap-4">
+        <div>
+          <h3 class="text-lg font-medium text-white">{{ user.name }}</h3>
+          <div class="flow-root">
+            <ul class="-m-1 flex flex-wrap">
+              <li class="p-1 leading-none">
+                <a href="#" class="text-xs font-medium text-gray-300"> {{ user.email }} </a>
+              </li>
+
+              <li class="p-1 leading-none">
+                <a href="#" class="text-xs font-medium text-gray-300"> {{ user.phone }} </a>
+              </li>
+
+              <li class="p-1 leading-none">
+                <a href="#" class="text-xs font-medium text-gray-300">{{ user.website }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </article>
+  </li>
+</ul>

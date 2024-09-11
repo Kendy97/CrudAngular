@@ -11,15 +11,13 @@ import { Component } from '@angular/core';
 export class NgclassComponent {
   isHighlighted = false;
 
-  // Zmienna kontrolująca styl tekstu (kolor)
+
   textColor = 'black';
 
-  // Metoda do zmiany klasy CSS
+
   toggleHighlight() {
     this.isHighlighted = !this.isHighlighted;
   }
-
-  // Metoda do zmiany koloru tekstu
   changeTextColor() {
     this.textColor = this.textColor === 'black' ? 'blue' : 'black';
   }
