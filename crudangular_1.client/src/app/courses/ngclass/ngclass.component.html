@@ -1,0 +1,21 @@
+<div [ngClass]="{ 'highlight': isHighlighted }" [ngStyle]="{'color': textColor}">
+
+  <p class="mt-2 max-w-sm">
+    Wierszyk o wierszyku, co skacze po słowach,
+    Raz tańczy w melodii, raz w rymu rozmowach.
+    Jest krótki, lecz śmieszny, ma lekki swój krok,
+    Czasami na żarty, a czasem na szok!
+
+    Lubi być zwinny, jak wietrzyk po chmurach,
+    Zagubisz się w nim, a on wciąż w humorach.
+    Fajny ten wierszyk, bo bawi na cacy,
+    I kręci w kółeczko, jak małe wakacje!
+  </p>
+</div>
+<a (click)="toggleHighlight()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+    zmień tło
+  </a>
+
+<a (click)="changeTextColor()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+  Zmień kolor
+</a>

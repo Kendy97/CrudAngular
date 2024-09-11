@@ -1,0 +1,40 @@
+<form [formGroup]="formularz" (ngSubmit)="onSubmit()">
+  <label for="imie">Imię</label>
+  <input id="imie" formControlName="imie" class="mt-1 w-full rounded-md border-gray-400 bg-red text-sm text-gray-700 shadow-sm" />
+  <div *ngIf="formularz.get('imie')?.invalid && formularz.get('imie')?.touched">
+    <small *ngIf="formularz.get('imie')?.errors?.['required']">Imię jest wymagane.</small>
+    <small *ngIf="formularz.get('imie')?.errors?.['minlength']">Imię musi mieć przynajmniej 3 znaki.</small>
+  </div>
+
+  <label for="email">Email</label>
+  <input id="email" formControlName="email" placeholder="tests@gmail.com" class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"/>
+  <div *ngIf="formularz.get('email')?.invalid && formularz.get('email')?.touched">
+    <small *ngIf="formularz.get('email')?.errors?.['required']">Email jest wymagany.</small>
+    <small *ngIf="formularz.get('email')?.errors?.['email']">Niepoprawny format email.</small>
+  </div>
+
+  <label for="haslo">Hasło</label>
+  <input id="haslo" type="password" formControlName="haslo" class="mt-1 w-full rounded-md border-gray-800 bg-white text-sm text-gray-700 shadow-sm" />
+  <div *ngIf="formularz.get('haslo')?.invalid && formularz.get('haslo')?.touched">
+    <small *ngIf="formularz.get('haslo')?.errors?.['required']">Hasło jest wymagane.</small>
+    <small *ngIf="formularz.get('haslo')?.errors?.['minlength']">Hasło musi mieć przynajmniej 6 znaków.</small>
+  </div>
+
+  <label for="potwierdzHaslo">Potwierdź hasło</label>
+  <input id="potwierdzHaslo" type="password" formControlName="potwierdzHaslo" class="mt-1 w-full rounded-md border-gray-800 bg-white text-sm text-gray-700 shadow-sm" />
+  <div *ngIf="formularz.get('potwierdzHaslo')?.invalid && formularz.get('potwierdzHaslo')?.touched">
+    <small *ngIf="formularz.get('potwierdzHaslo')?.errors?.['required']">Potwierdzenie hasła jest wymagane.</small>
+    <small *ngIf="formularz.get('potwierdzHaslo')?.errors?.['minlength']">Potwierdzenie hasła musi mieć przynajmniej 6 znaków.</small>
+  </div>
+  <div *ngIf="!czyHaslaZgodne() && formularz.get('potwierdzHaslo')?.touched">
+    <small>Hasła nie są zgodne.</small>
+  </div>
+
+  <button type="submit" [disabled]="formularz.invalid || !czyHaslaZgodne()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">Wyślij</button>
+
+
+
+</form>
+
+
+

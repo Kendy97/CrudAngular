@@ -1,0 +1,30 @@
+<ng-template #myTemplate>
+
+  <a  class="block max-w-sm justify-center">
+    <img alt=""
+         src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+         class="h-64 w-full object-cover sm:h-80 lg:h-96" />
+
+    <h3 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Lorem, ipsum dolor.</h3>
+
+    <p class="mt-2 max-w-sm text-gray-700">
+      Wierszyk o wierszyku, co skacze po słowach,
+      Raz tańczy w melodii, raz w rymu rozmowach.
+      Jest krótki, lecz śmieszny, ma lekki swój krok,
+      Czasami na żarty, a czasem na szok!
+
+      Lubi być zwinny, jak wietrzyk po chmurach,
+      Zagubisz się w nim, a on wciąż w humorach.
+      Fajny ten wierszyk, bo bawi na cacy,
+      I kręci w kółeczko, jak małe wakacje!
+    </p>
+  </a>
+</ng-template>
+
+<a (click)="insertTemplate()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+  Dodaj
+</a>
+
+<a (click)="deleteTemplate()" class="inline-block rounded border border-indigo-600 px-12 py-3 text-sm font-medium text-indigo-600 hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:bg-indigo-500">
+  Usuń
+</a>
